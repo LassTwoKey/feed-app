@@ -11,3 +11,37 @@ body {
 input {
 	outline: none;
 }
+
+body > div {
+	height: 100%;
+}
+body > div > div {
+	height: 100%;
+	overflow-x: hidden;
+}
+body > div > div > div {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+main {
+	flex: 1 1 auto;
+	background-color: #f2f2f2;
+	padding-top: 3rem;
+}
+
+.lock {
+	overflow-y: hidden;
+}
+
+.textLink {
+	color: rgb(14, 165, 233);
+	word-break: break-all;
+}
+.break-all {
+	word-break: break-all;
+}
+.textLink:hover {
+	text-decoration: underline;
+}
