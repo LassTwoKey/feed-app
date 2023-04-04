@@ -3,7 +3,10 @@
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
-      "config": {}
+      "config": {
+        "internalServer": true,
+        "generateStaticRoutes": true
+      }
     }
   ]
 }
