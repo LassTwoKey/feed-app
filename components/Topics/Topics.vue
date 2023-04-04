@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapMutations } from 'vuex'
 import UserIcon from '../icons/UserIcon.vue'
 import ArrowIcon from '../icons/ArrowIcon.vue'
@@ -63,7 +63,7 @@ export default {
   },
   props: {
     items: {
-      type: Array as any,
+      type: Array,
       required: true,
       default: () => [
         {
