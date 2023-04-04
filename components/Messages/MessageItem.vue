@@ -170,7 +170,7 @@ export default {
       const { tg } = useTelegram()
       tg.MainButton.text = 'Вернуться'
       // tg.MainButton.textColor = '#333'
-      tg.MainButton.color = '#f91'
+      // tg.MainButton.color = '#f91'
       tg.MainButton.show()
     },
     toggle() {
