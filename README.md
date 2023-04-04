@@ -1,4 +1,4 @@
-# feed-app
+# feed-up
 
 ## Build Setup
 
