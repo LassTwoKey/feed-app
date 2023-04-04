@@ -60,7 +60,7 @@
   </article>
 </template>
 
-<script lang="ts">
+<script>
 import ViewIcon from '../icons/ViewIcon.vue'
 import { TEXT_LEN } from '~/utils/constants'
 import { isMaxLength, setCloudfareLink, formattedText, formatNumber } from '~/utils'
@@ -72,7 +72,7 @@ export default {
   },
   props: {
     post: {
-      type: Object as any,
+      type: Object,
       required: true,
       default: () => ({
         id: Number,
@@ -103,19 +103,19 @@ export default {
     }
   },
   methods: {
-    maxLen(text: string) {
+    maxLen(text) {
       return isMaxLength(text, TEXT_LEN)
     },
-    setLink(id: string, variant: string) {
+    setLink(id, variant) {
       return setCloudfareLink(id, variant)
     },
-    formatText(text: string, highlight?: boolean, entities?: any) {
+    formatText(text, highlight, entities) {
       return formattedText(text, highlight, entities)
     },
-    dateFormat(date: string) {
+    dateFormat(date) {
       return postDateFormat(date)
     },
-    numFormat(num: number) {
+    numFormat(num) {
       return formatNumber(num)
     },
     onClick() {

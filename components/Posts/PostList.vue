@@ -10,7 +10,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import PostItem from './PostItem.vue'
 
 export default {
@@ -28,7 +28,7 @@ export default {
       deafult: false
     },
     posts: {
-      type: Array as any,
+      type: Array,
       required: true,
       default: () => [
         {
