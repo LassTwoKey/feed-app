@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      ['rounded-br-lg overflow-hidden fixed left-0 top-12 w-80 max-2xl:w-72 max-xl:w-64 max-lg:w-full max-lg:h-full max-lg:bg-slate-600 duration-200']: true,
+      ['rounded-br-lg overflow-hidden max-lg:fixed left-0 top-12 w-80 max-2xl:w-72 max-xl:w-64 max-lg:w-full max-lg:h-full max-lg:bg-slate-600 duration-200']: true,
       ['max-lg:top-12']: isOpen,
       ['max-lg:top-full']: !isOpen
     }"

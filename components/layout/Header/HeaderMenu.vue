@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     topics() {
-      return [...this.$store.state.topics.topics]
+      return [...this.$store.getters['topics/getTopics']]
     }
   },
   methods: {

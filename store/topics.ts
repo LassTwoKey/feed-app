@@ -95,8 +95,6 @@ export const mutations = {
         return { ...topic }
       }
     })
-    // console.log(id)
-    // state.topics = []
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex-none w-80 max-2xl:w-72 max-xl:w-64 bg-white">
+  <nav class="flex-none max-lg:hidden w-80 max-2xl:w-72 max-xl:w-64 bg-white">
     <Topics :items="topics" />
   </nav>
 </template>
