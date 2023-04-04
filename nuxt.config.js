@@ -12,6 +12,12 @@ export default {
 			{ name: 'format-detection', content: 'telephone=no' },
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+		script: [
+			{
+				src: "https://telegram.org/js/telegram-web-app.js",
+				body: true
+			}
+		]
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
