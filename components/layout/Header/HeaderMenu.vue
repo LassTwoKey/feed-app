@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapState } from 'vuex'
 import Topics from '~/components/Topics/Topics.vue'
 export default {
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      show: false as any
+      show: false
     }
   },
   computed: {

@@ -4,7 +4,7 @@
   </nav>
 </template>
 
-<script lang="ts">
+<script>
 import Topics from '~/components/Topics/Topics.vue'
 
 export default {

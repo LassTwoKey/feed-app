@@ -42,7 +42,7 @@
   </header>
 </template>
 
-<script lang="ts">
+<script>
 import Dropdown from './HeaderDropdown.vue'
 import HeaderMenu from './HeaderMenu.vue'
 import Modal from '~/components/ui/Modal.vue'
