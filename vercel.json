@@ -6,7 +6,7 @@
       "config": {
         "internalServer": true,
         "generateStaticRoutes": true,
-        "serverFiles": ["./.nuxt/"]
+        "serverFiles": ["./.nuxt"]
       }
     }
   ]
