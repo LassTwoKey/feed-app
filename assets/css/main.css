@@ -27,8 +27,7 @@ body > div > div > div {
 
 main {
 	flex: 1 1 auto;
-	background-color: #f2f2f2;
-	padding-top: 3rem;
+	background-color: var(--tg-theme-bg-color);
 }
 
 .lock {
