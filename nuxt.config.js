@@ -4,7 +4,7 @@ export default {
 		fallback: true
 	},
 	head: {
-		title: 'feed-app',
+		title: 'Feed-app',
 		htmlAttrs: {
 			lang: 'ru'
 		},
