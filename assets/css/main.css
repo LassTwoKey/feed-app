@@ -11,6 +11,9 @@ body {
 input {
 	outline: none;
 }
+body {
+	background-color: #f2f2f2;
+}
 
 body > div {
 	height: 100%;
@@ -27,7 +30,7 @@ body > div > div > div {
 
 main {
 	flex: 1 1 auto;
-	background-color: var(--tg-theme-bg-color);
+	padding-top: 3rem;
 }
 
 .lock {

@@ -15,87 +15,49 @@ export const setCloudfareLink = (id: string, variant: string) => {
   return `https://imagedelivery.net/pG6XD80Cie3F9jOvwRfTxg/${id}/${variant}`
 }
 
-export const formatNumber = (num: number) => {
-  if (!num) {
-    return 0
-  }
-  const formattedNumber = num.toLocaleString('en-US').replace(',', ' ')
-  return formattedNumber
-}
-
-export const formattedText = (text: string, highlight?: boolean, entities?: any) => {
+export const formattedText = (text: string, highlight?: boolean) => {
   if (!text) {
     return ''
   }
 
-  if (!entities) {
-    return text
-  }
+  const indentsInText = text.replace(/[\n]/g, '<br />')
 
-  let initText = text
-
-  const selectedEntities = []
-
-  for (let i = 0; i < entities.length; i++) {
-    const entity = entities[i]
-    selectedEntities.push({
-      text: text.substr(entity.offset, entity.length),
-      type: entity.entity_type
-    })
-  }
-
-  // Entity types
-  for (let i = 0; i < selectedEntities.length; i++) {
-    const selEntity = selectedEntities[i]
-    if (selEntity.type === 'bold') {
-      initText = initText.replace(selEntity.text, `<b>${selEntity.text}</b>`)
-    }
-    if (selEntity.type === 'italic') {
-      initText = initText.replace(selEntity.text, `<i>${selEntity.text}</i>`)
-    }
-    if (selEntity.type === 'code') {
-      initText = initText.replace(selEntity.text, `<code>${selEntity.text}</code>`)
-    }
-    if (selEntity.type === 'strike') {
-      initText = initText.replace(selEntity.text, `<s>${selEntity.text}</s>`)
-    }
-    if (selEntity.type === 'underline') {
-      initText = initText.replace(selEntity.text, `<u>${selEntity.text}</u>`)
-    }
-    if (selEntity.type === 'url') {
-      // const linkRegex = /(https?:\/\/[^\s]+)/g
-      // if (highlight) {
-      //   initText = initText.replace(linkRegex, `<a href="$1" class="textLink">$1</a>`)
-      // } else {
-      //   initText = initText.replace(linkRegex, `<a class="textLink">$1</a>`)
-      // }
-      if (highlight) {
-        initText = initText.replace(
-          selEntity.text,
-          `<a href="${selEntity.text}" class="textLink">${selEntity.text}</a>`
-        )
-      } else {
-        initText = initText.replace(selEntity.text, `<a class="textLink">${selEntity.text}</a>`)
-      }
-    }
-  }
-
-  initText = initText.replace(/[\n]/g, '<br>')
-
-  // safe wrap
-  const textWords = initText.split(' ')
+  const textWords = indentsInText.split(' ')
 
   const textWordsArr = []
 
   for (const word of textWords) {
-    if (word.length > 25) {
+    if (word.length > 20) {
       textWordsArr.push(`<span class="break-all">${word}</span>`)
     } else {
       textWordsArr.push(word)
     }
   }
 
-  initText = textWordsArr.join(' ')
+  const textWordsString = textWordsArr.join(' ')
 
-  return initText
+  if (!highlight) {
+    return textWordsString
+  }
+
+  // Find and replace links
+  const linkRegex = /(https?:\/\/[^\s]+)/g
+  const linkedText = textWordsString.replace(linkRegex, '<a href="$1" class="textLink">$1</a>')
+
+  // Find and replace hashtags
+  const hashtagRegex = /#(\w+)/g
+  const hashtaggedText = linkedText.replace(
+    hashtagRegex,
+    '<a href="https://t.me/$1" class="textLink">#$1</a>'
+  )
+
+  return hashtaggedText
+}
+
+export const formatNumber = (num: number) => {
+  if (!num) {
+    return 0
+  }
+  const formattedNumber = num.toLocaleString('en-US').replace(',', ' ')
+  return formattedNumber
 }

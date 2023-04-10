@@ -8,28 +8,16 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <title>Close</title>
-    <g
-      id="Page-1"
-      stroke="none"
-      stroke-width="1"
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="Close">
-        <rect
-          id="Rectangle"
-          fill-rule="nonzero"
-          x="0"
-          y="0"
-          width="24"
-          height="24"
-        ></rect>
+        <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
         <line
           id="Path"
           x1="16.9999"
           y1="7"
           x2="7.00001"
           y2="16.9999"
+          :stroke="color"
           stroke-width="2"
           stroke-linecap="round"
         ></line>
@@ -39,6 +27,7 @@
           y1="7"
           x2="17"
           y2="16.9999"
+          :stroke="color"
           stroke-width="2"
           stroke-linecap="round"
         ></line>
@@ -47,8 +36,17 @@
   </svg>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'CloseIcon',
+  name: 'NuxtArromIcon',
+  props: {
+    color: {
+      type: String,
+      default: String
+    }
+  },
+  data() {
+    return {}
+  }
 }
 </script>

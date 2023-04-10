@@ -17,8 +17,17 @@
   </svg>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'LinkIcon',
+  name: 'NuxtArromIcon',
+  props: {
+    color: {
+      type: String,
+      default: String
+    }
+  },
+  data() {
+    return {}
+  }
 }
 </script>

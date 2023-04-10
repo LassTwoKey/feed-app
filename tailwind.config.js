@@ -30,8 +30,7 @@ module.exports = {
 				'1': '1px'
 			},
 			boxShadow: {
-				'message': '0px 2px 7px #00000030',
-				'messageDetails': '0px 2px 7px #00000030'
+				'message': '0px 2px 7px #dedede'
 			}
 		}
 	},

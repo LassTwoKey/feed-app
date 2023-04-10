@@ -23,16 +23,19 @@
 
 <script lang="ts">
 export default {
-  name: 'SearchIcon',
+  name: 'NuxtArromIcon',
   props: {
     color: {
       type: String,
-      default: String,
+      default: String
     },
     size: {
       type: String,
-      default: '20px',
-    },
+      default: '20px'
+    }
   },
+  data() {
+    return {}
+  }
 }
 </script>
