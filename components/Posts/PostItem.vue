@@ -3,12 +3,12 @@
     class="bg-white block rounded-lg border-1 overflow-hidden hover:border-1 hover:border-slate-400 duration-150 shadow-message"
   >
     <div v-if="post.cover_img_id" class="bg-gray-200">
-      <div>
+      <NuxtLink :to="`/posts/${post.message_id}`">
         <picture class="flex justify-center">
           <source media="(min-width: 442px)" :srcset="setLink(post.cover_img_id, 'PostImage')" />
           <img :src="setLink(post.cover_img_id, 'PostImageSmall')" alt="Изобравжение поста" />
         </picture>
-      </div>
+      </NuxtLink>
     </div>
     <div class="p-4">
       <div class="flex gap-3 items-center mb-3 justify-between max-sm:mb-2">

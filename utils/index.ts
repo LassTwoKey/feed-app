@@ -42,7 +42,7 @@ export const formattedText = (text: string, isLinked?: boolean) => {
   if (isLinked) {
     linkedText = textWordsString.replace(linkRegex, `<a href="$1" class="textLink">$1</a>`)
   } else {
-    linkedText = textWordsString.replace(linkRegex, `<span class="textLink">${linkRegex}</span>`)
+    linkedText = textWordsString.replace(linkRegex, `<span class="textLink">$1</span>`)
   }
 
   // Find and replace hashtags

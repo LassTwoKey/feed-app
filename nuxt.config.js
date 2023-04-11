@@ -3,6 +3,16 @@ export default {
 	generate: {
 		fallback: true
 	},
+	pageTransition: {
+		name: 'page',
+		mode: 'out-in',
+		beforeEnter() {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			})
+		}
+	},
 	head: {
 		title: 'Feed-app',
 		htmlAttrs: {

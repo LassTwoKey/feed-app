@@ -23,6 +23,10 @@ export default Vue.extend({
     Sidebar,
     PostList
   },
+  transition: {
+    name: 'home',
+    mode: 'out-in'
+  },
   computed: {
     posts() {
       return [...this.$store.getters['posts/getPosts']]
