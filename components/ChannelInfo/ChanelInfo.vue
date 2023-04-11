@@ -18,7 +18,7 @@
         <p class="text-gray-400">{{ channelData.title }}</p>
         <h3 class="text-xl font-medium text-gray-700">{{ channelData.username }}</h3>
       </div>
-      <p class="spec-text break-words" v-html="formatText(channelData.about)"></p>
+      <p class="spec-text break-words" v-html="formatText(channelData.about, true)"></p>
       <p class="mt-2">
         Ведёт блог с <span class="font-medium">{{ createChannelDate(channelData.date) }}</span>
       </p>
@@ -131,8 +131,8 @@ export default {
     createChannelDate(date: string) {
       return channelDate(date)
     },
-    formatText(text: string, highlight?: boolean) {
-      return formattedText(text, highlight)
+    formatText(text: string, isLinked?: boolean) {
+      return formattedText(text, isLinked)
     },
     numFormat(num: number) {
       return formatNumber(num)

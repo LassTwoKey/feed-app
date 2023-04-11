@@ -15,7 +15,7 @@ export const setCloudfareLink = (id: string, variant: string) => {
   return `https://imagedelivery.net/pG6XD80Cie3F9jOvwRfTxg/${id}/${variant}`
 }
 
-export const formattedText = (text: string, highlight?: boolean) => {
+export const formattedText = (text: string, isLinked?: boolean) => {
   if (!text) {
     return ''
   }
@@ -36,13 +36,14 @@ export const formattedText = (text: string, highlight?: boolean) => {
 
   const textWordsString = textWordsArr.join(' ')
 
-  if (!highlight) {
-    return textWordsString
-  }
-
-  // Find and replace links
   const linkRegex = /(https?:\/\/[^\s]+)/g
-  const linkedText = textWordsString.replace(linkRegex, '<a href="$1" class="textLink">$1</a>')
+
+  let linkedText = ''
+  if (isLinked) {
+    linkedText = textWordsString.replace(linkRegex, `<a href="$1" class="textLink">$1</a>`)
+  } else {
+    linkedText = textWordsString.replace(linkRegex, `<span class="textLink">${linkRegex}</span>`)
+  }
 
   // Find and replace hashtags
   const hashtagRegex = /#(\w+)/g
@@ -60,4 +61,18 @@ export const formatNumber = (num: number) => {
   }
   const formattedNumber = num.toLocaleString('en-US').replace(',', ' ')
   return formattedNumber
+}
+
+export const findMenuItemById = (menuItems: any[], id: string | number): any => {
+  for (const item of menuItems) {
+    if (item.id === id) {
+      return item
+    }
+    if (item.subMenu) {
+      const result = findMenuItemById(item.subMenu, id)
+      if (result) {
+        return result
+      }
+    }
+  }
 }

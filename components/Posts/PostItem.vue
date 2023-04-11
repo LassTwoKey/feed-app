@@ -3,7 +3,7 @@
     class="bg-white block rounded-lg border-1 overflow-hidden hover:border-1 hover:border-slate-400 duration-150 shadow-message"
   >
     <div v-if="post.cover_img_id" class="bg-gray-200">
-      <div class="cursor-pointer" @click="onClick">
+      <div>
         <picture class="flex justify-center">
           <source media="(min-width: 442px)" :srcset="setLink(post.cover_img_id, 'PostImage')" />
           <img :src="setLink(post.cover_img_id, 'PostImageSmall')" alt="Изобравжение поста" />
@@ -40,17 +40,9 @@
             !maxLen(post.text) && hideExtra
         }"
       >
-        <h3
-          class="text-2xl font-semibold mb-3 cursor-pointer"
-          @click="onClick"
-          v-html="formatText(post.header, false)"
-        ></h3>
+        <h3 class="text-2xl font-semibold mb-3" v-html="formatText(post.header, true)"></h3>
         <div class="mb-3 overflow-hidden">
-          <p
-            class="break-words max-w-full cursor-pointer"
-            @click="onClick"
-            v-html="formatText(post.text, false)"
-          ></p>
+          <p class="break-words max-w-full" v-html="formatText(post.text, true)"></p>
         </div>
       </NuxtLink>
       <div
@@ -60,17 +52,9 @@
             !maxLen(post.text) && hideExtra
         }"
       >
-        <h3
-          class="text-2xl font-semibold mb-3 cursor-pointer"
-          @click="onClick"
-          v-html="formatText(post.header, false)"
-        ></h3>
+        <h3 class="text-2xl font-semibold mb-3" v-html="formatText(post.header, false)"></h3>
         <div class="mb-3 overflow-hidden">
-          <p
-            class="break-words max-w-full cursor-pointer"
-            @click="onClick"
-            v-html="formatText(post.text, false)"
-          ></p>
+          <p class="break-words max-w-full" v-html="formatText(post.text, false)"></p>
         </div>
       </div>
     </div>
@@ -146,17 +130,6 @@ export default {
     },
     numFormat(num) {
       return formatNumber(num)
-    },
-    onClick() {
-      this.loadMessageDetails()
-      this.toggle()
-    },
-    toggle() {
-      if (!this.isOpen) {
-        this.isOpen = true
-      } else {
-        this.isOpen = false
-      }
     },
     loadMessageDetails() {
       console.log('loading...')

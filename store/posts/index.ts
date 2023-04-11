@@ -1,6 +1,10 @@
+import personalExperience from './personal-experience'
 import type { Post } from '~/types/Post'
 
 export const state = () => ({
+  modules: {
+    personalExperience
+  },
   posts: [
     {
       message_id: 829061,
